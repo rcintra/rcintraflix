@@ -4,10 +4,6 @@
         "titulo": "Triathlon",
         "link": "https://www.youtube.com/watch?v=2BVfRD0FmRs",
         "cor": "#6BD1FF",
-        "link_extra": {
-          "text": "Kona 2019",
-          "url": "https://www.youtube.com/watch?v=wOr_h1WjemQ"
-        },
         "videos": [
           {
             "titulo": "IronMan Floripa 2019 #ironmanfloripa",
@@ -34,10 +30,6 @@
       {
         "titulo": "Ciclismo",
         "cor": "#00C86F",
-        "link_extra": {
-          "text": "Treinos Indoor",
-          "url": "https://www.youtube.com/watch?v=-uM2uvyQoQU"
-        },
         "videos": [
           {
             "titulo": "Peter Sagan",
@@ -59,11 +51,7 @@
       },
       {
         "titulo": "Programação",
-        "cor": "#9cd33b",
-        "link_extra": {
-          "text": "Cursos de Data Science na Alura",
-          "url": "https://www.alura.com.br/formacao-data-science"
-        },
+        "cor": "#9cd33b",        
         "videos": [
           {
             "titulo": "Teste de Turing",
