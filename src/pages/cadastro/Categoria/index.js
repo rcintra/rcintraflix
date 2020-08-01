@@ -3,6 +3,7 @@ import React, { useState }from 'react';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button';
 
 function CadastroCategoria() {
     const valoresIniciais = {
@@ -43,8 +44,7 @@ function CadastroCategoria() {
             }}>
                 
                 <FormField 
-                    label="Nome da Categoria"
-                    type="text"
+                    label="Nome da Categoria"                    
                     name="nome"
                     value={values.nome}
                     onChange={handleChange}                    
@@ -66,9 +66,9 @@ function CadastroCategoria() {
                     onChange={handleChange}                    
                 />
                 
-                <button>
+                <Button>
                     Cadastrar
-                </button>
+                </Button>
 
                 <ul>
                     {categorias.map((categoria, index) => {
