@@ -4,6 +4,7 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
     const valoresIniciais = {
@@ -12,40 +13,26 @@ function CadastroCategoria() {
         cor: ''
     }
 
-    const [categorias, setCategorias] = useState([]);
-    const [values, setValues] = useState(valoresIniciais);
+    const { handleChange, values , clearForm } = useForm(valoresIniciais);
 
-    function setValue(key, value) {
-        setValues({
-            ...values,
-            [key]: value,
-        })
-    }
+    const [categorias, setCategorias] = useState([]);
     
-    function handleChange(parms) {
-        setValue(
-          parms.target.getAttribute('name'),
-          parms.target.value
-        );
-      };
 
     useEffect(() => {        
-        if (window.location.href.includes('localhost')) {
-            const URL = 'http://localhost:8080/categorias';
-            fetch(URL)
-                .then(async (response) => {
-                  if (response.ok) {
-                    const resp = await response.json();
-                    setCategorias([
-                        ...resp,
-                    ]);
-                    return;
-                }
-                throw new Error('Não foi possível pegar os dados');
-            });
-        }
-    }, [] );
- 
+
+        const URL_TOP = window.location.hostname.includes('localhost')
+            ? 'http://localhost:8080/categorias'
+            : 'https://rcintraflix.herokuapp.com/categorias';
+    
+        fetch(URL_TOP)
+            .then(async (response) => {              
+                const resp = await response.json();
+                setCategorias([
+                    ...resp,
+                ]);
+            });     
+    }, []);   
+
     return (
         <PageDefault>
             <h1>Cadastro de Categoria: {values.nome} </h1>
@@ -57,7 +44,7 @@ function CadastroCategoria() {
                     values
                 ])
 
-                setValues({valoresIniciais})
+                clearForm();
             }}>
                 
                 <FormField 
