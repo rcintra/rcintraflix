@@ -5,6 +5,7 @@ import FormField from '../../../components/FormField';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
     const valoresIniciais = {
@@ -19,19 +20,11 @@ function CadastroCategoria() {
     
 
     useEffect(() => {        
-
-        const URL_TOP = window.location.hostname.includes('localhost')
-            ? 'http://localhost:8080/categorias'
-            : 'https://rcintraflix.herokuapp.com/categorias';
-    
-        fetch(URL_TOP)
-            .then(async (response) => {              
-                const resp = await response.json();
-                setCategorias([
-                    ...resp,
-                ]);
-            });     
-    }, []);   
+        categoriasRepository.getAllWithVideos()
+            .then((categoriasComVideos) => {
+                console.log(categoriasComVideos);
+            });
+    });
 
     return (
         <PageDefault>

@@ -2,15 +2,29 @@
     "categorias" : [
         {
             "id": 1,
-            "nome" : "Front End",
-            "descricao" : "Uma categoria",
-            "cor" : "#cbd1ff"
+            "nome" : "Triathlon",
+            "descricao" : "Triathlon",
+            "cor" : "#6BD1FF"
         },
         {
             "id": 2,
-            "nome" : "Back End",
-            "descricao" : "Outra categoria",
-            "cor" : "#cbd1ff"
+            "nome" : "Ciclismo",
+            "descricao" : "Ciclismo",
+            "cor" : "#00C86F"
         }
-    ]
+    ],
+    "videos": [
+        {
+          "id": 1,
+          "categoriaId": 1,
+          "titulo": "IronMan Floripa 2019 #ironmanfloripa",
+          "url": "https://www.youtube.com/watch?v=S8o9c-ScV7Y"          
+        },
+        {
+            "id": 2,
+            "categoriaId": 1,
+            "titulo": "IronMan Floripa 2018 #ironmanfloripa",
+            "url": "https://www.youtube.com/watch?v=1fIH0mXyF6o"          
+          }
+      ]
 }
