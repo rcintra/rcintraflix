@@ -22,9 +22,9 @@ function CadastroCategoria() {
     useEffect(() => {        
         categoriasRepository.getAllWithVideos()
             .then((categoriasComVideos) => {
-                console.log(categoriasComVideos);
+                setCategorias(categoriasComVideos);
             });
-    });
+    }, []);
 
     return (
         <PageDefault>
