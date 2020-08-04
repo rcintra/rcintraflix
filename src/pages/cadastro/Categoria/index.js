@@ -9,7 +9,7 @@ import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
     const valoresIniciais = {
-        nome: '',
+        titulo: '',
         descricao: '',
         cor: ''
     }
@@ -42,8 +42,8 @@ function CadastroCategoria() {
                 
                 <FormField 
                     label="Nome da Categoria"                    
-                    name="nome"
-                    value={values.nome}
+                    name="titulo"
+                    value={values.titulo}
                     onChange={handleChange}                    
                 />
 
@@ -79,7 +79,7 @@ function CadastroCategoria() {
                 {categorias.map((categoria, index) => {
                     return (
                         <li key={`${categoria}${index}`}>
-                            {categoria.nome}
+                            {categoria.titulo}
                         </li>
                     );
                 })}
