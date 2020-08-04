@@ -8,16 +8,12 @@ import useForm from '../../../hooks/useForm';
 import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
-    const valoresIniciais = {
-        titulo: '',
-        descricao: '',
-        cor: ''
-    }
-
-    const { handleChange, values , clearForm } = useForm(valoresIniciais);
-
     const [categorias, setCategorias] = useState([]);
-    
+    const { handleChange, values, clearForm } = useForm({
+        titulo: '',
+        descricao: '', 
+        cor: '',        
+    });
 
     useEffect(() => {        
         categoriasRepository.getAllWithVideos()
@@ -31,12 +27,17 @@ function CadastroCategoria() {
             <h1>Cadastro de Categoria: {values.nome} </h1>
 
             <form onSubmit={function handleSubmit(event){
-                event.preventDefault();
-                setCategorias([
-                    ...categorias,
-                    values
-                ])
+                event.preventDefault();                
 
+                categoriasRepository.create({
+                    titulo: values.titulo,
+                    descricao: values.descricao,
+                    cor: values.cor,
+                })
+                .then(() => {
+                    console.log('Cadastro de categoria efetuada com sucesso!');                    
+                });
+                setCategorias([...categorias, values]);
                 clearForm();
             }}>
                 
@@ -63,7 +64,7 @@ function CadastroCategoria() {
                     onChange={handleChange}                    
                 />
                 
-                <Button>
+                <Button type="submit">
                     Cadastrar
                 </Button>                
                 

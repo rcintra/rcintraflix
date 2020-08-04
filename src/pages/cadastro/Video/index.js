@@ -36,8 +36,8 @@ function CadastroVideo() {
 
                 const categoriaEscolhida = categorias.find((categoria) => {
                     return categoria.titulo === values.categoria;
-                })                                
-
+                })
+               
                 videosRepository.create({
                     titulo: values.titulo,
                     categoriaId: categoriaEscolhida.id,
